@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Відвідувачі</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Відвідувачі</h1>
+      <a href="/visitors/add" class="button">Додати відвідувача</a>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Ім'я</th>
+            <th>Прізвище</th>
+            <th>Телефон</th>
+            <th>Емейл</th>
+            <th>Дії</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="visitor : ${visitors}">
+            <td th:text="${visitor.visitorId}"></td>
+            <td th:text="${visitor.name}"></td>
+            <td th:text="${visitor.surname}"></td>
+            <td th:text="${visitor.phone}"></td>
+            <td th:text="${visitor.email}"></td>
+            <td>
+              <a
+                th:href="@{/visitors/edit/{id}(id=${visitor.visitorId})}"
+                class="button edit"
+                >Редагувати</a
+              >
+              <a
+                th:href="@{/visitors/delete/{id}(id=${visitor.visitorId})}"
+                class="button delete"
+                >Видалити</a
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <a href="/home" class="button back">Повернутися</a>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Вхід</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Вхід</h1>
+
+      <!-- Форма авторизації -->
+      <form class="form-container" th:action="@{/login}" method="post">
+        <!-- Повідомлення про помилки/успіх -->
+        <div class="messages">
+          <div th:if="${param.error}" class="error-message error">
+            Невірний логін або пароль.
+          </div>
+          <div th:if="${param.unauthorized}" class="error-message error">
+            Будь ласка, увійдіть в систему для доступу до цієї сторінки.
+          </div>
+          <div th:if="${param.logout}" class="success-message">Успішно авторизовано.</div>
+        </div>
+
+        <!-- Поля вводу -->
+        <div class="form-group">
+          <label for="username">Логін:</label>
+          <input type="text" id="username" name="username" required />
+        </div>
+
+        <div class="form-group">
+          <label for="password">Пароль:</label>
+          <input type="password" id="password" name="password" required />
+        </div>
+
+        <!-- Кнопка відправки -->
+        <button type="submit" class="button">Логін</button>
+      </form>
+
+      <!-- Посилання на реєстрацію -->
+      <p>Не маєте аккаунта? <a th:href="@{/register}">Регістрація</a></p>
+    </div>
+  </body>
+</html>

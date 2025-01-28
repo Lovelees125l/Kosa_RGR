@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>MUSIC</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+  </head>
+  <body>
+    <div class="container" style="text-align: center">
+       
+        
+      </a>
+
+      <h1>Музика</h1>
+      <h2>Сайт для зручної покупки квитків на концерти</h2>
+      <h3>КІ-222 Коса В.В.</h3>
+
+      <div class="navigation">
+        <a th:href="@{/visitors}" class="button">Відвідувачі</a>
+        <a th:href="@{/menu-items}" class="button">Концерти</a>
+        <a th:href="@{/orders}" class="button">Замовлення</a>
+        <a th:href="@{/order-items}" class="button">Замовлені концерти</a>
+      </div>
+      <form th:action="@{/logout}" method="post" style="margin-top: 20px;">
+        <button type="submit" class="button logout" style="width: 120px;">Вихід</button>
+      </form>
+    </div>
+  </body>
+</html>
